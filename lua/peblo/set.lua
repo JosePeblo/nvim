@@ -28,15 +28,13 @@ vim.opt.colorcolumn = '80'
 
 vim.g.mapleader = ' '
 
+-- vim.g.netrw_sort_sequence = '[\\/]$,\\.h$,\\.c$,\\.cpp$,*,\\.o$,\\.obj$,\\.info$,\\.swp$,\\.bak$,\\~$'
+vim.g.netrw_sort_sequence = '[\\/]$,\\.info$,\\.swp$,\\.bak$,\\~$'
 
-
-
-
-
-
-
-
-
-
-
+if vim.loop.os_uname().sysname == 'Windows_NT' then
+    vim.opt.shell = 'powershell.exe'
+    vim.opt.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command'
+    vim.opt.shellquote = ''
+    vim.opt.shellxquote = ''
+end
 
