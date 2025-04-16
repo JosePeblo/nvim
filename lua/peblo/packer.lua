@@ -32,4 +32,29 @@ return require('packer').startup(function(use)
       requires = { 'nvim-tree/nvim-web-devicons', opt = true }
   }
 
+  use('folke/neodev.nvim')
+
+  use {
+    'folke/lazydev.nvim',
+    ft = 'lua', -- only load on lua files
+    opts = {
+      library = {
+        -- See the configuration section for more details
+        -- Load luvit types when the `vim.uv` word is found
+        { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+      },
+    },
+    config = function()
+      require('lazydev').setup()
+    end,
+  }
+
+  use {
+    'neovim/nvim-lspconfig',
+    config = function ()
+      require('peblo.lsp')
+    end
+  }
+
 end)
+
