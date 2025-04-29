@@ -32,6 +32,12 @@ return require('packer').startup(function(use)
       requires = { 'nvim-tree/nvim-web-devicons', opt = true }
   }
 
+  use({
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+  })
+
   use('folke/neodev.nvim')
 
   use {
@@ -49,12 +55,6 @@ return require('packer').startup(function(use)
     end,
   }
 
-  use {
-    'neovim/nvim-lspconfig',
-    config = function ()
-      require('peblo.lsp')
-    end
-  }
 
 end)
 
