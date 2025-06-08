@@ -12,6 +12,8 @@ lspconfig.lua_ls.setup {}
 
 lspconfig.clangd.setup {}
 
+lspconfig.pyright.setup {}
+
 lspconfig.gopls.setup {
   setting = {
     gopls = {
@@ -28,5 +30,11 @@ vim.diagnostic.config({
   virtual_text = true,
 })
 
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'cpp',
+  callback = function()
+    vim.opt_local.cinoptions:append('N-s')
+  end,
+})
 
 

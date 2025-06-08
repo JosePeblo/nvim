@@ -38,6 +38,10 @@ require'nvim-treesitter.configs'.setup {
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
+  indent = {
+    enable = true,
+    disable = {},
+  },
 }
 
 vim.filetype.add({
@@ -45,3 +49,16 @@ vim.filetype.add({
         m = "objc",
     },
 })
+
+-- For some reason python does not want 
+-- to indent with 2 spaces on the default config
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = 'python',
+  callback = function()
+    vim.opt_local.tabstop = 2
+    vim.opt_local.softtabstop = 2
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.expandtab = true
+  end,
+})
+
