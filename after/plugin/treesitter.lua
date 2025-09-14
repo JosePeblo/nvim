@@ -47,6 +47,7 @@ require'nvim-treesitter.configs'.setup {
 vim.filetype.add({
     extension = {
         m = "objc",
+        cl = "opencl",
     },
 })
 
