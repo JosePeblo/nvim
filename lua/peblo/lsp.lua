@@ -26,6 +26,12 @@ lspconfig.gopls.setup {
   },
 }
 
+lspconfig.opencl_ls.setup {
+  on_attach = function(client, bufnr)
+    client.server_capabilities.diagnosticProvider = false
+  end
+}
+
 vim.diagnostic.config({
   virtual_text = true,
 })
